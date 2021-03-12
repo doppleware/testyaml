@@ -1,0 +1,41 @@
+kind: blueprint
+spec_version: 1
+
+clouds:
+- azure 4: eastus
+
+inputs:
+  - LOCATION:
+      default_value: eastus
+  # - STORAGE_ACCOUNT_NAME:
+  - input_disk_string: 
+      default_value: "1:SSD,4,2:SSD,7"
+      description: >
+        Azure allows you to use a maximum of 4 drives. Example of input : "1:SSD,4,2:SSD,7"          
+  - vm:
+      default_value: "staging-vm"
+      description: >
+        Input VM application name. Example of input : "staging-vm"
+applications:
+- staging-vm:
+    input_values:
+        - SANDBOX_ID: $colony.environment.id
+        - LOCATION: $LOCATION
+    
+services:
+  - disks:
+      input_values:
+      - SANDBOX_ID: $colony.environment.id
+      - LOCATION: $LOCATION
+      - input_disk_string: $input_disk_string
+      - vm1: $vm
+      # - RESOURCE_GROUP_NAME: $colony.environment.id
+      # - STORAGE_ACCOUNT_NAME: $STORAGE_ACCOUNT_NAME
+      # - ACCOUNT_TIER: standard
+      # - ACCOUNT_REPLICATION: LRS
+      # - CONTAINER_NAME: default
+
+
+
+debugging:
+  availability: on
