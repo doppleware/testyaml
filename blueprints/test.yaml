@@ -5,7 +5,8 @@ clouds:
 - azure 4: eastus
 
 inputs:
-  
+
+
   - LOCATION:
       default_value: eastus
   # - STORAGE_ACCOUNT_NAME:
