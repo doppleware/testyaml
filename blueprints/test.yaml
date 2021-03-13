@@ -2,6 +2,7 @@
 spec_version: 1
 kind: blueprint
 
+
 metadata:
   description: >
     Java application with a managed RDS database deployed with TerraForm.
