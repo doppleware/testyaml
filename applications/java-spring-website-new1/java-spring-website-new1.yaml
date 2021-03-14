@@ -18,7 +18,6 @@ inputs:
   - DB_HOSTNAME
   - USE_SSL: false
 
-
 # This section defines the infrastructure requirements
 # for the application
 infrastructure:
